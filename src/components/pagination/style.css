@@ -1,0 +1,48 @@
+.pagination_container {
+    display: flex;
+    height: 3rem;
+    align-content: center;
+    justify-content: center;
+    color: black;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 450px;
+}
+
+.buttons button {
+    width: 100px;
+    border: none;
+    background-color: transparent;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.dropdown {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 150px;
+}
+
+.dropdown select {
+    width: 60px;
+}
+
+.page_numbers li {
+    display: inline;
+    margin: 0 6px;
+    cursor: pointer;
+}
+
+.search_bar {
+    align-self: center;
+    margin: 0 30px;
+}
+
+.search_bar button {
+    margin-left: 5px;
+}

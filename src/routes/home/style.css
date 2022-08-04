@@ -1,5 +1,14 @@
 .home {
-	padding: 56px 20px;
-	min-height: 100%;
-	width: 100%;
+    padding: 40px 0;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.gallery>div {
+    flex-basis: 200px;
 }

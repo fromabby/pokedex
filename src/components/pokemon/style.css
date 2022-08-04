@@ -1,18 +1,9 @@
-:root {
-    --yellow: #ffde0d;
-    --blue: #3b4cca;
-    --red: #f00;
-    --dark-red: #c00;
-    --dirty-yellow: #b3a125;
-}
-
 .card {
     background-color: var(--yellow);
-    width: 17rem;
-    min-height: 20rem;
-    height: fit-content;
+    height: 15rem;
+    width: 12rem;
     padding: 10px;
-    margin: 10px auto;
+    margin: 10px 0;
     border-radius: 0.7rem;
     border: 6px solid var(--dirty-yellow);
     text-align: center;
@@ -34,9 +25,4 @@
 .card h3 {
     font-size: 1.2rem;
     text-transform: uppercase;
-}
-
-.card .types {
-    color: var(--blue);
-    line-height: 0.2em;
 }

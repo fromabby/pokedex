@@ -37,31 +37,38 @@ const Pokemon: FC<PokemonProps> = ({ id }) => {
         types: [],
     })
 
+    const [loading, setLoading] = useState<boolean>(true)
+
     useEffect(() => {
         const getData = async (id: number) => {
-            const data = await fetch(
-                `https://pokeapi.co/api/v2/pokemon/${id}`
-            ).then((res) => res.json())
-            const {
-                id: pokeId,
-                name,
-                base_experience,
-                height,
-                order,
-                weight,
-                types,
-            } = data
+            try {
+                const data = await fetch(
+                    `https://pokeapi.co/api/v2/pokemon/${id}`
+                ).then((res) => res.json())
+                const {
+                    id: pokeId,
+                    name,
+                    base_experience,
+                    height,
+                    order,
+                    weight,
+                    types,
+                } = data
 
-            setPokemon({
-                pokeId,
-                name,
-                base_experience,
-                height,
-                order,
-                weight,
-                types,
-            })
-            console.log(data)
+                setPokemon({
+                    pokeId,
+                    name,
+                    base_experience,
+                    height,
+                    order,
+                    weight,
+                    types,
+                })
+
+                setLoading(false)
+            } catch (error) {
+                setLoading(false)
+            }
         }
 
         getData(id)
@@ -69,15 +76,23 @@ const Pokemon: FC<PokemonProps> = ({ id }) => {
 
     const url = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`
 
-    return (
+    return loading ? (
+        <h1 style={{ textAlign: 'center' }}>Loading...</h1>
+    ) : (
         pokemon && (
-            <div class={style.pokemon}>
-                <h1>
+            <div class={style.card}>
+                <div class={style.image}>
+                    <img src={url} />
+                </div>
+
+                <h3>
                     #{id} {pokemon.name}
-                </h1>
-                <img src={url} />
-                {pokemon.types &&
-                    pokemon.types.map((x) => <p>{x.type.name}</p>)}
+                </h3>
+                <div class={style.types}>
+                    <h4>Types:</h4>
+                    {pokemon.types &&
+                        pokemon.types.map((x) => <p>{x.type.name}</p>)}
+                </div>
             </div>
         )
     )
