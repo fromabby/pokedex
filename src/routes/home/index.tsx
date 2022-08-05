@@ -48,7 +48,7 @@ const Home: FC = () => {
                     setPokemon({
                         name,
                         id,
-                        url: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`,
+                        url: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${id}.png`,
                     })
                 } else {
                     const { count, results } = await fetch(

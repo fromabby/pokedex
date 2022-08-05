@@ -74,7 +74,7 @@ const Pokemon: FC<PokemonProps> = ({ id }) => {
         getData(id)
     }, [id])
 
-    const url = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`
+    const url = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${id}.png`
 
     return loading ? (
         <h1 style={{ textAlign: 'center' }}>Loading...</h1>
@@ -82,7 +82,7 @@ const Pokemon: FC<PokemonProps> = ({ id }) => {
         pokemon && (
             <div class={style.card}>
                 <div class={style.image}>
-                    <img src={url} />
+                    <img src={url} alt={pokemon.name} />
                 </div>
 
                 <h3>

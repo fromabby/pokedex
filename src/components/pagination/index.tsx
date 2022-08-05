@@ -23,13 +23,21 @@ const Pagination: FC<PaginationProps> = ({ count, setOffset, setInput }) => {
     ) => {
         const target = e.target as HTMLSelectElement
 
-        setOffset(50 * target.value)
+        if (Number(target.value) === 1) {
+            setOffset(0)
+        } else {
+            setOffset(50 * Number(target.value))
+        }
         setPage(Number(target.value))
     }
 
     const skipTo = (page: number) => {
-        setOffset(50 * page)
-        setPage(Number(page))
+        if (page === 1) {
+            setOffset(0)
+        } else {
+            setOffset(50 * page)
+        }
+        setPage(page)
     }
 
     return (
@@ -39,8 +47,10 @@ const Pagination: FC<PaginationProps> = ({ count, setOffset, setInput }) => {
                     onClick={() => {
                         if (page === 1) return
 
-                        setOffset((curr: number) => curr - 50 * 1)
                         setPage((page: number) => page - 1)
+                        setOffset((curr: number) => curr - 50 * 1)
+
+                        // TODO: when page > 2, click prev until 1, displays offset 50
                     }}
                 >
                     &#10094; Prev
