@@ -1,0 +1,27 @@
+.sidebar {
+  background-color: var(--alt-black);
+  padding: 40px;
+}
+
+.list {
+  margin: 0 40px 0 10px;
+}
+
+.name_card {
+  display: flex;
+  padding: 5px;
+  width: 100px;
+  text-transform: capitalize;
+}
+
+.list .name_card{ 
+  color: #f3f3f3; 
+  line-height: 1.6;
+  cursor: pointer;
+}
+
+.list .name_card img {
+  width: 25px;
+  height: 25px;
+  padding: 4px;
+}

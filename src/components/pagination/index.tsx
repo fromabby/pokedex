@@ -63,6 +63,7 @@ const Pagination: FC<PaginationProps> = ({ count, setOffset, setInput }) => {
 
                             return (
                                 <li
+                                    key={x}
                                     style={
                                         x === page
                                             ? {

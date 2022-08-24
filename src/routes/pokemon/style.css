@@ -1,42 +1,72 @@
-:root {
-    --yellow: #ffde0d;
-    --blue: #3b4cca;
-    --red: #f00;
-    --dark-red: #c00;
-    --dirty-yellow: #b3a125;
+.flip {
+  background-color: transparent;
+  width: 300px;
+  height: 200px;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  margin: 50px auto;
 }
 
-.card {
-    background-color: var(--yellow);
-    width: 17rem;
-    min-height: 20rem;
-    height: fit-content;
-    padding: 10px;
-    margin: 10px auto;
-    border-radius: 0.7rem;
-    border: 6px solid var(--dirty-yellow);
-    text-align: center;
-    cursor: pointer;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+.flip-card-inner {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.flip:hover .inner {
+  transform: rotateY(180deg);
+}
+
+.inner {
+  position: relative;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  background-color: var(--yellow);
+  width: 17rem;
+  min-height: 20rem;
+  height: fit-content;
+  border-radius: 0.7rem;
+  border: 6px solid var(--dirty-yellow);
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.front, .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+  text-transform: uppercase;
+}
+
+.front h3 {
+  text-align: left;
+  margin: 10px 20px;
+  font-size: 4rem;
+}
+
+.back {
+  transform: rotateY(180deg);
 }
 
 .image {
-    background-color: #fff;
-    margin-bottom: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin: -60px auto 10px auto;  
 }
 
 .image img {
-    height: 150px;
-    width: 150px;
-}
-
-.card h3 {
-    font-size: 1.2rem;
-    text-transform: uppercase;
+  height: 200px;
+  width: 200px;
 }
 
 .card .types {
-    color: var(--blue);
-    line-height: 0.2em;
+  color: var(--blue);
+  line-height: 0.2em;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 15px;
 }

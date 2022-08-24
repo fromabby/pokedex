@@ -15,7 +15,7 @@ const Pokemon: FC<PokemonProps> = ({ id, pokemon }) => {
     const pokeId: string | number = !Number(id)
         ? id.substring(0, id.length - 1)
         : id
-    const url: string = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${pokeId}.png`
+    const url = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${pokeId}.png`
 
     const redirectTo = (url: string) => {
         route(url)

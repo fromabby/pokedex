@@ -1,9 +1,9 @@
 .nav {
-    background-color: var(--dark-red);
+    background-color: var(--alt-black);
     width: 100%;
     height: 60px;
     padding: 10px;
-    color: white;
+    color: #f3f3f3;
 }
 
 .nav h1 {

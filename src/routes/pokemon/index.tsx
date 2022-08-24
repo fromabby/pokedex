@@ -80,20 +80,27 @@ const Pokemon: FC<PokemonProps> = ({ id }) => {
         <h1 style={{ textAlign: 'center' }}>Loading...</h1>
     ) : (
         pokemon && (
-            <div class={style.card}>
+          <div class={style.flip}>
+            <div class={style.inner}>
+              <div class={style.front}>
+                <h3>{id}</h3>
                 <div class={style.image}>
                     <img src={url} alt={pokemon.name} />
                 </div>
-
-                <h3>
-                    #{id} {pokemon.name}
-                </h3>
+                <p>{pokemon.name}</p>
+              </div>
+              <div class={style.back}>
                 <div class={style.types}>
-                    <h4>Types:</h4>
-                    {pokemon.types &&
-                        pokemon.types.map((x) => <p>{x.type.name}</p>)}
-                </div>
+                      <div class={style.title}>
+                        <h4>{pokemon.name}</h4>
+                        <h4>{id}</h4>
+                      </div>
+                      {pokemon.types &&
+                          pokemon.types.map((x) => <p key={x.type.name}>{x.type.name} TYPE</p>)}
+                  </div>
+              </div>
             </div>
+          </div>
         )
     )
 }

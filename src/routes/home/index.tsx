@@ -5,6 +5,7 @@ import { useState, useEffect } from 'preact/hooks'
 import { FC } from 'preact/compat'
 import Pokemon from '../../components/pokemon'
 import Pagination from '../../components/pagination'
+import Sidebar from '../../components/sidebar'
 
 interface Pokemons {
     name: string
@@ -77,7 +78,9 @@ const Home: FC = () => {
     }, [offset, input])
 
     return (
-        <div class={style.home}>
+        <div class={style.wrapper}>
+          <Sidebar pokemons={pokemons} />
+          <div class={style.home}>
             <Pagination
                 count={count}
                 setOffset={setOffset}
@@ -96,10 +99,11 @@ const Home: FC = () => {
                     pokemons.map((pokemon) => {
                         const id = pokemon.url.slice(34)
 
-                        return <Pokemon id={id} pokemon={pokemon} />
+                        return <Pokemon key={id} id={id} pokemon={pokemon} />
                     })
                 )}
             </div>
+        </div>
         </div>
     )
 }

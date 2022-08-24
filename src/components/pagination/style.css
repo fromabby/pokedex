@@ -3,7 +3,7 @@
     height: 3rem;
     align-content: center;
     justify-content: center;
-    color: black;
+    color: #f3f3f3;
 }
 
 .buttons {
@@ -19,6 +19,7 @@
     background-color: transparent;
     font-size: 1rem;
     cursor: pointer;
+    color: #f3f3f3;
 }
 
 .dropdown {
